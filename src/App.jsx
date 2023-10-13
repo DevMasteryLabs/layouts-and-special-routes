@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard"
 import Profile from "./pages/Profile"
 import About from "./pages/About"
 import NotFound from "./pages/NotFound"
+import OutsideLayout from "./layouts/OutsideLayout"
 
 
 function App() {
@@ -14,8 +15,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route element={<OutsideLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Route>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/about" element={<About />} />
