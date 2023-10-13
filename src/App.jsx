@@ -9,23 +9,30 @@ import About from "./pages/About"
 import NotFound from "./pages/NotFound"
 import OutsideLayout from "./layouts/OutsideLayout"
 import InsideLayout from "./layouts/InsideLayout"
+import NeutralLayout from "./layouts/NeutralLayout"
 
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+
         <Route element={<OutsideLayout />}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Route>
+
         <Route element={<InsideLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound />} />
+
+        <Route element={<NeutralLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+
       </Routes>
     </BrowserRouter>
   )
