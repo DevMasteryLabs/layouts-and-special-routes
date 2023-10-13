@@ -8,6 +8,7 @@ import Profile from "./pages/Profile"
 import About from "./pages/About"
 import NotFound from "./pages/NotFound"
 import OutsideLayout from "./layouts/OutsideLayout"
+import InsideLayout from "./layouts/InsideLayout"
 
 
 function App() {
@@ -19,8 +20,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Route>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route element={<InsideLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
+        </Route>
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
